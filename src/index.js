@@ -30,25 +30,27 @@ class Board extends React.Component {
             );
     }
 
+    createBoard = () => {
+        let board = []
+
+        // Outer loop to create parent
+        for (let row = 0; row < 3; row++) {
+            let children = []
+            let startIndex = row * 3
+            //Inner loop to create children
+            for (let squareIndex = startIndex; squareIndex < startIndex + 3; squareIndex++) {
+                children.push(this.renderSquare(squareIndex))
+            }
+            //Create the parent and add the children
+            board.push(<div className="board-row">{children}</div>)
+        }
+        return board
+    }
+
+
     render() {
         return (
-            <div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
-            </div>
+            <div>{this.createBoard()}</div>
         );
     }
 }
