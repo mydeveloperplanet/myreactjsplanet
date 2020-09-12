@@ -66,6 +66,7 @@ class Game extends React.Component {
             }],
             stepNumber: 0,
             xIsNext: true,
+            isReversed: false,
         }
     }
 
@@ -93,6 +94,12 @@ class Game extends React.Component {
             stepNumber: step,
             xIsNext: (step % 2) === 0,
         });
+    }
+
+    toggleReversed() {
+        this.setState({
+            isReversed: !this.state.isReversed,
+        })
     }
 
     render() {
@@ -127,7 +134,8 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <ol>{moves}</ol>
+                    <button onClick={() => this.toggleReversed()}>Toggle moves sorting</button>
+                    <ol>{this.state.isReversed ? moves.reverse() : moves}</ol>
                 </div>
             </div>
         );
