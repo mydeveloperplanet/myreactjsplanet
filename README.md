@@ -1,3 +1,6 @@
+# MyReactJsPlanet
+The corresponding blog post can be found here: https://mydeveloperplanet.com/2020/10/07/getting-started-with-react/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
